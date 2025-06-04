@@ -1,0 +1,366 @@
+:root {
+  --primary: #4CAF50;
+  --primary-dark: #388E3C;
+  --secondary: #2196F3;
+  --secondary-dark: #1976D2;
+  --danger: #f44336;
+  --text: #2D3748;
+  --text-light: #718096;
+  --border: #E2E8F0;
+  --bg: #F7FAFC;
+  --card-bg: #FFFFFF;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: var(--primary);
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.container {
+  padding: 1.5rem;
+}
+
+/* Quick Add */
+.quick-add-container {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.quick-add {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  appearance: none;
+  background-color: white;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  transition: all 0.2s;
+}
+
+.quick-add:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Add Item Form */
+.add-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(76, 175, 80, 0.05);
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  background-color: white;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.quantity-unit {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.quantity-unit input {
+  flex: 2;
+}
+
+.quantity-unit select {
+  flex: 1;
+  min-width: 80px;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button.secondary {
+  background-color: var(--secondary);
+}
+
+button.secondary:hover {
+  background-color: var(--secondary-dark);
+}
+
+button.danger {
+  background-color: var(--danger);
+}
+
+/* Grocery List */
+.grocery-list {
+  margin-top: 1.5rem;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.list-header h2 {
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.grocery-items {
+  list-style: none;
+}
+
+.grocery-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  box-shadow: var(--shadow);
+}
+
+.grocery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.grocery-item.bought {
+  opacity: 0.7;
+  background-color: #F8F9FA;
+}
+
+.grocery-item.bought .item-name {
+  text-decoration: line-through;
+  color: var(--text-light);
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+}
+
+.item-details {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  gap: 0.8rem;
+}
+
+.item-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.item-actions button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.1rem;
+}
+
+/* Total and Actions */
+.total-container {
+  padding: 1.2rem;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 10px;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border);
+}
+
+.total-label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.total-amount {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.action-buttons button {
+  flex: 1;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-light);
+}
+
+.empty-state i {
+  font-size: 3rem;
+  color: var(--border);
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  margin-top: 0.5rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+}
+
+.footer a {
+  color: var(--secondary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .add-item {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .quantity-unit {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .quantity-unit select {
+    width: 100%;
+  }
+}
